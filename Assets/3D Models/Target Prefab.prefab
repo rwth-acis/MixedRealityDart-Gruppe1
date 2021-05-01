@@ -58,6 +58,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   center: {fileID: 4543538975620893550}
+  PrefabArrow: {fileID: 5953533504762694495, guid: 5fdc152c7a8c42c4db98f31ead22ea92,
+    type: 3}
 --- !u!1 &5392769565844703650
 GameObject:
   m_ObjectHideFlags: 0
