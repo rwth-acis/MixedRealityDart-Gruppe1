@@ -51,9 +51,8 @@ public class PrecisionMeasurement : MonoBehaviour, IMixedRealityPointerHandler
                     }
                     // if the pointer actually gives a result: do something with it
                     if (p.Result != null){
-
                         float distance = Vector3.Distance(p.Result.Details.Point, center.position);
-                        Debug.Log(p.Result.Details.Point + " " + center.position);
+                        Debug.Log("Distance: " + distance);
                     }
 
                 }
