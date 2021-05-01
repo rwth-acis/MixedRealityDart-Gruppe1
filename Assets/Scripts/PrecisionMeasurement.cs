@@ -7,6 +7,9 @@ using Microsoft.MixedReality.Toolkit;
 public class PrecisionMeasurement : MonoBehaviour, IMixedRealityPointerHandler
 {
 	[SerializeField] Transform center;
+	[SerializeField] GameObject PrefabArrow;
+
+	bool wasShoot = false;
 
     public void OnPointerClicked(MixedRealityPointerEventData eventData)
     {
@@ -27,13 +30,14 @@ public class PrecisionMeasurement : MonoBehaviour, IMixedRealityPointerHandler
 					// if the pointer actually gives a result: do something with it
 					if (p.Result != null)
 					{
-						// TODO: enter your code here
-						// ===========================================
-
-						float distance = Vector3.Distance(p.Result.Details.Point, center.position);
-						Debug.Log(distance);
-
-						// ===========================================
+						if(!wasShoot)
+                        {
+							wasShoot = true;
+							Vector3 endPos = p.Result.Details.Point;
+							float distance = Vector3.Distance(endPos, center.position);
+							Debug.Log(distance);
+							Instantiate(PrefabArrow, endPos, Quaternion.Euler(-90,0,0), p.Result.Details.Object.transform);
+                        }
 					}
 
 				}
