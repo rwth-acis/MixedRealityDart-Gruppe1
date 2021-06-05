@@ -45,7 +45,7 @@ public class GameManager : MonoBehaviour
     {
         if (spawner.Spawn())
         {
-            GameObject target = spawner.SpawnedInstances[0];
+            GameObject target = spawner.MostRecentlySpawnedObject();
             target.transform.position = new Vector3(Random.Range(-1.5f, 1.5f), Random.Range(-1.5f, 1.5f), 2);
             targetCount--;
             labelText.text = targetCount + " targets remaining...";
